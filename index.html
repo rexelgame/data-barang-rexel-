@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Stok Barang – Rexel Game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div><h1 id="toko"></h1><p id="kontak"></p></div>
+  <select id="tanggal" aria-label="Pilih tanggal"></select>
+</header>
+<main>
+  <section class="cards" id="cards"></section>
+
+  <section class="panel">
+    <div class="toolbar">
+      <input id="cari" type="search" placeholder="Cari nama barang…">
+      <select id="filter"><option value="">Semua status</option><option>Aman</option><option>Menipis</option><option>Habis</option></select>
+      <button id="csv">Ekspor CSV</button>
+    </div>
+    <div class="scroll"><table>
+      <thead><tr>
+        <th data-k="nama">Nama Barang</th><th data-k="awal">Stok Awal</th><th data-k="masuk">Masuk</th>
+        <th data-k="keluar">Keluar</th><th data-k="akhir">Stok Akhir</th><th>Status</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table></div>
+  </section>
+
+  <div class="grid">
+    <section class="panel"><h2>Stok akhir per barang</h2><div id="bars"></div></section>
+    <section class="panel"><h2>Tren harian (masuk &amp; keluar)</h2><div id="tren"></div>
+      <h2>Catatan selisih data</h2><ul id="catatan"></ul></section>
+  </div>
+
+  <section class="panel">
+    <h2>Catat transaksi baru</h2>
+    <div class="toolbar">
+      <select id="fBarang"></select>
+      <select id="fJenis"><option value="masuk">Barang masuk</option><option value="keluar">Barang keluar</option></select>
+      <input id="fJml" type="number" min="1" value="1">
+      <button id="tambah">Simpan</button>
+      <button id="reset" class="ghost">Hapus transaksi tambahan</button>
+    </div>
+    <small>Transaksi diterapkan pada tanggal yang dipilih di atas dan disimpan di browser (localStorage), data Excel asli tidak berubah.</small>
+  </section>
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
